@@ -1,0 +1,54 @@
+
+FloatLayout:
+
+	Widget:
+		id: btn
+		size_hint_y: None
+		height: 80
+
+	MDTextFieldRect:
+		id: fld
+		pos_hint: {'center_x': 0.5, 'center_y': .93}
+		multiline: False
+		size_hint: (0.9, 0.05)
+
+	MDIconButton:
+		icon: 'magnify'
+		pos_hint: {'center_x': 0.9, 'center_y': .93}
+		on_release:
+			app.search(fld.text)
+
+	MDLabel:
+		id: error
+		halign: 'center'
+		pos_hint: {'center_y': 0.5}
+
+		
+	MDSpinner:
+		id: rc_spin
+		size_hint: None, None
+		size: dp(46), dp(46)
+		pos_hint: {'center_x': .5, 'center_y': .5}
+		active: False
+
+	MDBoxLayout:
+		orientation: 'vertical'
+
+		ScrollView:
+
+			height: root.height - btn.height
+			size_hint_y: None
+
+			MDList:
+
+				MDLabel:
+					id: title
+			        size_hint_y: None
+			        height: self.texture_size[1]
+			        bold: True
+			        halign: 'center'
+
+			    MDLabel:
+			    	id: summary
+			        size_hint_y: None
+			        height: self.texture_size[1]

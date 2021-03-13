@@ -1,0 +1,11 @@
+Screen:
+	MDLabel:
+		text: app.user_data_dir
+		halign: 'center'
+		pos_hint: {'center_y': 0.3}
+
+    MDRoundFlatIconButton:
+        text: "Open manager"
+        icon: "folder"
+        pos_hint: {'center_x': .5, 'center_y': .6}
+        on_release: app.file_manager_open()

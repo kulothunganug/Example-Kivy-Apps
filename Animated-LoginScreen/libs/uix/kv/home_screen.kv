@@ -1,0 +1,139 @@
+<HomeScreen>
+
+    MDLabel:
+        id: header_text
+        text: "Hello!"
+        halign: "center"
+        font_style: "H4"
+        pos_hint: {"center_y": .8}
+
+    MDFloatingActionButton:
+        id: header_icon
+        icon: "arrow-left"
+        pos_hint: {"center_x": 1.2, "center_y": .9}
+        on_release: root.back_section()
+
+    MDCard:
+        id: sign_up
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.primary_dark
+        radius: [0, dp(30), dp(30), 0]
+        size_hint: .45, .5
+        pos_hint: {"center_x": .2, "center_y": .4}
+        on_release: root.goto_section("sign_up")
+
+        RelativeLayout:
+
+            RelativeLayout:
+                id: welcome_sign_up
+
+                MDLabel:
+                    text: "Sign Up"
+                    font_style: "H6"
+                    halign: "right"
+                    pos_hint: {"center_x": .4, "center_y": .85}
+                    opposite_colors: True
+
+                MDLabel:
+                    text: "New here?"
+                    halign: "right"
+                    pos_hint: {"center_x": .4, "center_y": .72}
+                    opposite_colors: True
+
+                MDLabel:
+                    text: "Don't worry just\nsign up to gain\naccess to this\namazing app"
+                    halign: "right"
+                    pos_hint: {"center_x": .4, "center_y": .5}
+                    opposite_colors: True
+
+            RelativeLayout:
+                id: sign_up_form
+                opacity: 0
+                disabled: True
+
+                MDTextField:
+                    hint_text: "Name"
+                    pos_hint: {"center_x": .5, "center_y": .7}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+                MDTextField:
+                    hint_text: "Email"
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+                MDTextField:
+                    hint_text: "Password"
+                    pos_hint: {"center_x": .5, "center_y": .3}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+                MDFloatingActionButton:
+                    icon: "arrow-right"
+                    pos_hint: {"center_x": .5, "center_y": .1}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+    MDCard:
+        id: sign_in
+        orientation: "vertical"
+        md_bg_color: app.theme_cls.primary_color
+        radius: [dp(30), 0, 0, dp(30)]
+        size_hint: .45, .4
+        pos_hint: {"center_x": .8, "center_y": .45}
+        on_release: root.goto_section("sign_in")
+
+
+        RelativeLayout:
+
+            RelativeLayout:
+                id: welcome_sign_in
+
+                MDLabel:
+                    text: "Sign In"
+                    font_style: "H6"
+                    pos_hint: {"center_x": .6, "center_y": .85}
+                    opposite_colors: True
+
+                MDLabel:
+                    text: "Returning?"
+                    pos_hint: {"center_x": .6, "center_y": .68}
+                    opposite_colors: True
+
+                MDLabel:
+                    text: "Just sign in\nto resume what\nyou were doing"
+                    pos_hint: {"center_x": .6, "center_y": .4}
+                    adaptive_height: True
+                    opposite_colors: True
+
+            RelativeLayout:
+                id: sign_in_form
+                opacity: 0
+                disabled: True
+
+                MDTextField:
+                    hint_text: "Email"
+                    pos_hint: {"center_x": .5, "center_y": .65}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+                MDTextField:
+                    hint_text: "Password"
+                    pos_hint: {"center_x": .5, "center_y": .37}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+                MDFloatingActionButton:
+                    icon: "arrow-right"
+                    pos_hint: {"center_x": .5, "center_y": .12}
+                    disabled: self.parent.disabled
+                    opacity: self.parent.opacity
+
+
+<MDTextField>
+    size_hint_x: .8
+    text_color: app.theme_cls.bg_normal
+    color_mode: "custom"
+    line_color_focus: app.theme_cls.bg_normal
+    mode: "rectangle"
