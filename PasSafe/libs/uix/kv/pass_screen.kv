@@ -1,0 +1,45 @@
+<PassScreen>
+
+    AnchorLayout:
+        padding: "15dp"
+        anchor_x: "left"
+        anchor_y: "top"
+
+        MDIconButton:
+            icon: "chevron-left"
+            on_release: root.goto_home()
+
+    MDLabel:
+        text: "Save Your New Password"
+        font_style: "H4"
+        halign: "center"
+        pos_hint: {"center_y": .8}
+
+    TextFieldRound:
+        id: media_fld
+        hint_text: "Media Name"
+        icon_left: "earth"
+        size_hint: .8, .06
+        pos_hint: {"center_x": .5, "center_y": .6}
+
+    TextFieldRound:
+        id: id_fld
+        hint_text: "ID"
+        icon_left: "account"
+        size_hint: .8, .06
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+    TextFieldRound:
+        id: pass_fld
+        hint_text: "Password"
+        icon_left: "lock"
+        icon_right: "eye-off"
+        password: True
+        size_hint: .8, .06
+        pos_hint: {"center_x": .5, "center_y": .4}
+
+    MDFillRoundFlatIconButton:
+        icon: "plus"
+        text: "Create"
+        pos_hint: {"center_x": .5, "center_y": .3}
+        on_release: root.write()

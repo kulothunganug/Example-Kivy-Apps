@@ -46,12 +46,14 @@ class HomeScreen(MDScreen):
         ]
 
         # selected card
-        Animation(pos_hint={"center_x": 0.5}, size_hint_x=0.8, t="in_out_circ").start(
-            self.ids[section]
-        )
+        Animation(
+            pos_hint={"center_x": 0.5}, size_hint_x=0.8, t="in_out_circ"
+        ).start(self.ids[section])
 
         # forms in main card
-        Animation(opacity=1, t="in_out_circ").start(self.ids[section + "_form"])
+        Animation(opacity=1, t="in_out_circ").start(
+            self.ids[section + "_form"]
+        )
         self.ids[section + "_form"].disabled = False
 
         # another card
@@ -77,7 +79,9 @@ class HomeScreen(MDScreen):
 
         # header icon
         Animation(
-            pos_hint={"center_x": -1 if self.current_section == "sign_up" else 1.2},
+            pos_hint={
+                "center_x": -1 if self.current_section == "sign_up" else 1.2
+            },
             t="in_out_circ",
         ).start(self.ids.header_icon)
 
@@ -88,7 +92,9 @@ class HomeScreen(MDScreen):
 
         # selected card
         anim = Animation(
-            pos_hint={"center_x": 0.2 if self.current_section == "sign_up" else 0.8},
+            pos_hint={
+                "center_x": 0.2 if self.current_section == "sign_up" else 0.8
+            },
             size_hint_x=0.45,
             t="in_out_circ",
         )
@@ -101,5 +107,7 @@ class HomeScreen(MDScreen):
 
         # another card
         Animation(opacity=1).start(
-            self.ids["sign_in" if self.current_section == "sign_up" else "sign_up"]
+            self.ids[
+                "sign_in" if self.current_section == "sign_up" else "sign_up"
+            ]
         )

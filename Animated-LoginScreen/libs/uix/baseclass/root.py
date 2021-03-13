@@ -43,7 +43,9 @@ class Root(ScreenManager):
             screens = json.load(f)
             for import_screen, screen_details in screens.items():
                 exec(import_screen)  # excecuting imports
-                screen_object = eval(screen_details["factory"])  # adding it to Factory
+                screen_object = eval(
+                    screen_details["factory"]
+                )  # adding it to Factory
                 screen_object.name = screen_details[
                     "screen_name"
                 ]  # giving the name of the screen

@@ -20,7 +20,7 @@
         radius: [0, dp(30), dp(30), 0]
         size_hint: .45, .5
         pos_hint: {"center_x": .2, "center_y": .4}
-        on_release: root.goto_section("sign_up")
+        on_touch_down: root.goto_section("sign_up")
 
         RelativeLayout:
 
@@ -82,7 +82,7 @@
         radius: [dp(30), 0, 0, dp(30)]
         size_hint: .45, .4
         pos_hint: {"center_x": .8, "center_y": .45}
-        on_release: root.goto_section("sign_in")
+        on_touch_down: root.goto_section("sign_in")
 
 
         RelativeLayout:

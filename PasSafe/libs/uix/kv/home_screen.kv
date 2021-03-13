@@ -1,0 +1,88 @@
+<HomeScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDBoxLayout:
+            padding: ["20dp", "30dp", "10dp", 0]
+            adaptive_height: True
+
+            MDLabel:
+                id: title
+                text: "PasSafe"
+                font_style: "H2"
+                adaptive_height: True
+
+            MDIconButton:
+                icon: "cog-outline"
+                adaptive_height: True
+                y: title.texture_size[1]/2
+                on_release: root.open_settings()
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: [0, "30dp", 0, "30dp"]
+
+            TextFieldRound:
+                icon_left: "magnify"
+                hint_text: "Search"
+                size_hint: .8, .08
+                pos_hint: {"center_x": .5, "center_y": .9}
+                on_text: root.set_list_items(self.text, True)
+
+            RecycleView:
+                id: rv
+                key_viewclass: "viewclass"
+
+                RecycleBoxLayout:
+                    padding: "10dp"
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_size[1]
+                    default_size_hint: 1, None
+
+    AnchorLayout:
+        padding: "30dp"
+        anchor_x: "right"
+        anchor_y: "bottom"
+
+        MDFloatingActionButton:
+            icon: "plus"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "pass"
+
+
+<SettingsContent>
+    orientation: "vertical"
+    padding: "30dp"
+    spacing: "10dp"
+    size_hint_y: None
+    height: "250dp"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "30dp"
+
+        Image:
+            source: "assets/images/logo.png"
+            size_hint: None, None
+            size: "100dp", "100dp"
+            pos_hint: {"center_x": .5}
+
+        MDLabel:
+            text: "PasSafe don't let you forget the password!"
+            halign: "center"
+            font_style: "Caption"
+
+    Widget:
+        size_hint_y: None
+        height: "20dp"
+
+    MDSeparator:
+
+    MDFlatButton:
+        text: "Delete all Saved Passwords"
+        theme_text_color: "Error"
+        pos_hint: {"center_x": .5}
+        on_release: app.root.current_screen.delete_all_password()
