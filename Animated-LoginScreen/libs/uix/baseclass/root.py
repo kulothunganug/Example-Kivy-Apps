@@ -1,11 +1,8 @@
 import json
 
-import utils
 from kivy.clock import Clock
 from kivy.factory import Factory  # NOQA: F401
 from kivy.uix.screenmanager import ScreenManager
-
-utils.load_kv("root.kv")
 
 
 class Root(ScreenManager):

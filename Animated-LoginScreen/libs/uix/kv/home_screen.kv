@@ -11,6 +11,7 @@
         id: header_icon
         icon: "arrow-left"
         pos_hint: {"center_x": 1.2, "center_y": .9}
+        md_bg_color: app.theme_cls.accent_color
         on_release: root.back_section()
 
     MDCard:
@@ -20,7 +21,8 @@
         radius: [0, dp(30), dp(30), 0]
         size_hint: .45, .5
         pos_hint: {"center_x": .2, "center_y": .4}
-        on_touch_down: root.goto_section("sign_up")
+        on_touch_down:
+            if self.collide_point(*args[1].pos): root.goto_section("sign_up")
 
         RelativeLayout:
 
@@ -74,6 +76,7 @@
                     pos_hint: {"center_x": .5, "center_y": .1}
                     disabled: self.parent.disabled
                     opacity: self.parent.opacity
+                    md_bg_color: app.theme_cls.primary_color
 
     MDCard:
         id: sign_in
@@ -82,7 +85,8 @@
         radius: [dp(30), 0, 0, dp(30)]
         size_hint: .45, .4
         pos_hint: {"center_x": .8, "center_y": .45}
-        on_touch_down: root.goto_section("sign_in")
+        on_touch_down:
+            if self.collide_point(*args[1].pos): root.goto_section("sign_in")
 
 
         RelativeLayout:
@@ -129,7 +133,7 @@
                     pos_hint: {"center_x": .5, "center_y": .12}
                     disabled: self.parent.disabled
                     opacity: self.parent.opacity
-
+                    md_bg_color: app.theme_cls.primary_dark
 
 <MDTextField>
     size_hint_x: .8
