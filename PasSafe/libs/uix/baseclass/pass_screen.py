@@ -1,6 +1,7 @@
 import base64
 import json
 
+from kivymd.toast import toast
 from kivymd.uix.screen import MDScreen
 
 import utils
@@ -10,6 +11,12 @@ utils.load_kv("pass_screen.kv")
 
 class PassScreen(MDScreen):
     def write(self):
+
+        for i in self.ids:
+            if not self.ids[i].text:
+                toast("Please fill all the fields")
+                return
+
         try:
             with open(self.manager.user_data_file, "r") as f:
                 data = json.load(f)
@@ -32,8 +39,7 @@ class PassScreen(MDScreen):
 
     def clear_fields(self):
         for i in self.ids:
-            if "fld" in i:
-                self.ids[i].text = ""
+            self.ids[i].text = ""
 
     def encode_str(self, text):
         return str(base64.b64encode(text.encode("ascii")))[2:-1]
