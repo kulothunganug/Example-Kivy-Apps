@@ -1,0 +1,56 @@
+#: import CameraTab libs.uix.baseclass.camera_tab.CameraTab
+#: import ChatsTab libs.uix.baseclass.chats_tab.ChatsTab
+#: import StatusTab libs.uix.baseclass.status_tab.StatusTab
+#: import CallsTab libs.uix.baseclass.calls_tab.CallsTab
+
+#: import gch kivy.utils.get_color_from_hex
+
+<HomeScreen>
+
+    MDBoxLayout:
+        id: container
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "WhatsApp"
+            specific_text_color: 1, 1, 1, 1
+            right_action_items: [["magnify", lambda x: x], ["dots-vertical", lambda x: root.open_menu(x)]]
+
+        MDTabs:
+            default_tab: 1
+            indicator_color: 1, 1, 1, 1
+            tab_hint_x: True
+            text_color_normal: 1., 1., 1., .5
+            text_color_active: 1, 1, 1, 1
+            tab_indicator_anim: True
+            tab_indicator_height: dp(2)
+            on_tab_switch: root.on_tab_switch(*args)
+
+            CameraTab:
+                icon: "camera"
+            ChatsTab:
+                text: "[b]CHATS[/b]"
+            StatusTab:
+                text: "[b]STATUS[/b]"
+            CallsTab:
+                text: "[b]CALLS[/b]"
+
+    CustomFloatingActionButton:
+        id: pencil_btn
+        icon: "pencil"
+        pos: float_btn.x + dp(9), float_btn.y
+        disabled: True
+        md_bg_color: 0.9333333333333333, 0.9607843137254902, 0.9647058823529412, 1
+        theme_text_color: "Custom"
+        text_color: 0.27450980392156865, 0.41568627450980394, 0.42745098039215684, 1
+
+    AnchorLayout:
+        anchor_x: "right"
+        anchor_y: "bottom"
+        padding: "20dp"
+
+        MDFloatingActionButton:
+            id: float_btn
+            icon: "android-messages"
+            text_color: .9, 1, 1, 1  # using 1, 1, 1, 1 or ffffff not works, I don't know why
+            md_bg_color: app.theme_cls.accent_color

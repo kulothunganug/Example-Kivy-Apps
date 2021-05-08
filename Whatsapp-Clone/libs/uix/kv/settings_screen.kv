@@ -1,0 +1,93 @@
+<SettingsScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Settings"
+            specific_text_color: 1, 1, 1, 1
+            left_action_items: [["arrow-left", lambda x: root.manager.set_screen(name="home", side="right")]]
+
+        ScrollView:
+    
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+
+                TwoLineAvatarIconListItem:
+                    text: "User"
+                    divider: None
+                    secondary_text: "About"
+
+                    ImageLeftWidget:
+                        source: "data/logo/kivy-icon-256.png"
+
+                    IconRightWidget:
+                        icon: "qrcode"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.accent_color
+
+                Widget:
+
+                MDSeparator:
+                    size_hint_x: .8
+                    pos_hint: {"center_x": .5}
+
+                SettingsListItem:
+                    text: "Account"
+                    secondary_text: "Privacy, security, change number"
+                    icon: "key"
+
+                SettingsListItem:
+                    text: "Chats"
+                    secondary_text: "Theme, wallpapers, chat history"
+                    icon: "android-messages"
+
+                SettingsListItem:
+                    text: "Notifictaions"
+                    secondary_text: "Message, group & call tones"
+                    icon: "bell"
+
+                SettingsListItem:
+                    text: "Storage and data"
+                    secondary_text: "Network usage, auto-download"
+                    icon: "chart-donut"
+
+                SettingsListItem:
+                    text: "Help"
+                    secondary_text: "Help centre, contact us, privacy policy"
+                    icon: "help-circle-outline"
+
+                MDSeparator:
+                    size_hint_x: .8
+                    pos_hint: {"center_x": .5}
+
+                OneLineIconListItem:
+                    text: "Invite a friend"
+                    divider: None
+
+                    IconLeftWidget:
+                        icon: "account-multiple"
+                        theme_text_color: "Custom"
+                        text_color: app.theme_cls.accent_color
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+                MDLabel:
+                    text: "Powered by\n[b]Kivy & KivyMD[/b]"
+                    halign: "center"
+                    markup: True
+                    line_height: 1.5
+                    adaptive_height: True
+
+
+<SettingsListItem@TwoLineIconListItem>
+    icon: ""
+    divider: None
+
+    IconLeftWidget:
+        icon: root.icon
+        theme_text_color: "Custom"
+        text_color: app.theme_cls.accent_color

@@ -1,0 +1,42 @@
+{
+    "Byron Rodriguez": {
+        "image": "assets/images/1.jpg",
+        "message": "Why?",
+        "time": "9:10"
+    },
+    "Kristin Holmes": {
+        "image": "assets/images/2.jpg",
+        "message": "Hmm",
+        "time": "9:02"
+    },
+    "Everett Wagner": {
+        "image": "assets/images/3.jpg",
+        "message": "Call me later",
+        "time": "8:11"
+    },
+    "Roberto Bowman": {
+        "image": "assets/images/4.jpg",
+        "message": "Ok",
+        "time": "8:01"
+    },
+    "Dale Day": {
+        "image": "assets/images/5.jpg",
+        "message": "I'm on work",
+        "time": "7:51"
+    },
+    "Reginald Kelley": {
+        "image": "assets/images/6.jpg",
+        "message": "Let me know",
+        "time": "7:01"
+    },
+    "Darryl Richards": {
+        "image": "assets/images/7.jpg",
+        "message": "Let's see tomorrow",
+        "time": "6:12"
+    },
+    "Terry Larson": {
+        "image": "assets/images/8.jpg",
+        "message": "Come quickly!",
+        "time": "4:42"
+    }
+}
