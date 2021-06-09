@@ -29,24 +29,21 @@
             RelativeLayout:
                 id: welcome_sign_up
 
-                MDLabel:
+                CustomLabel:
                     text: "Sign Up"
                     font_style: "H6"
                     halign: "right"
                     pos_hint: {"center_x": .4, "center_y": .85}
-                    opposite_colors: True
 
-                MDLabel:
+                CustomLabel:
                     text: "New here?"
                     halign: "right"
                     pos_hint: {"center_x": .4, "center_y": .72}
-                    opposite_colors: True
 
-                MDLabel:
+                CustomLabel:
                     text: "Don't worry just\nsign up to gain\naccess to this\namazing app"
                     halign: "right"
                     pos_hint: {"center_x": .4, "center_y": .5}
-                    opposite_colors: True
 
             RelativeLayout:
                 id: sign_up_form
@@ -94,22 +91,19 @@
             RelativeLayout:
                 id: welcome_sign_in
 
-                MDLabel:
+                CustomLabel:
                     text: "Sign In"
                     font_style: "H6"
                     pos_hint: {"center_x": .6, "center_y": .85}
-                    opposite_colors: True
 
-                MDLabel:
+                CustomLabel:
                     text: "Returning?"
                     pos_hint: {"center_x": .6, "center_y": .68}
-                    opposite_colors: True
 
-                MDLabel:
+                CustomLabel:
                     text: "Just sign in\nto resume what\nyou were doing"
                     pos_hint: {"center_x": .6, "center_y": .4}
                     adaptive_height: True
-                    opposite_colors: True
 
             RelativeLayout:
                 id: sign_in_form
@@ -141,3 +135,8 @@
     color_mode: "custom"
     line_color_focus: app.theme_cls.bg_normal
     mode: "rectangle"
+
+
+<CustomLabel@MDLabel>
+    theme_text_color: "Custom"
+    text_color: 1, 1, 1, 1
