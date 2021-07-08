@@ -1,0 +1,67 @@
+<HomeScreen>
+
+    PBoxLayout:
+        orientation: "vertical"
+
+        PBoxLayout:
+            padding: [dp(25), dp(30), dp(5), dp(10)]
+            adaptive_height: True
+
+            PLabel:
+                text: "Chats"
+                font_size: sp(40)
+                font_name: "LexendMedium"
+                adaptive_height: True
+                text_size: self.width, None
+
+            PIconButton:
+                icon: "more-vertical"
+                mode: "unstyled"
+                font_size: sp(30)
+                on_release: root.show_menu()
+
+        RecycleView:
+            data: root.chats
+            viewclass: "ChatListItem"
+
+            RecycleBoxLayout:
+                padding: dp(10)
+                spacing: dp(10)
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_size[1]
+                default_size_hint: 1, None
+                default_size: None, None
+
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "bottom"
+        padding: dp(20)
+
+        PIconButton:
+            icon: "plus"
+
+
+<MenuDialogContent>
+    orientation: "vertical"
+    adaptive_height: True
+    padding: dp(15)
+    spacing: dp(10)
+
+    ListItem:
+        text: "Account"
+        secondary_text: "Account details"
+        icon: "user"
+
+    ListItem:
+        text: "Settings"
+        secondary_text: "App preferences"
+        icon: "tool"
+        on_release:
+            root.parent.parent.dismiss()
+            app.root.set_current("settings")
+
+    ListItem:
+        text: "Other"
+        secondary_text: "Others...."
+        icon: "more-horizontal"

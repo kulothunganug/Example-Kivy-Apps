@@ -1,0 +1,85 @@
+<AuthScreen>
+    canvas.before:
+        Color:
+            rgba: self.bg_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    PBoxLayout:
+        id: form
+        orientation: "vertical"
+        disabled: True
+        opacity: 0 if self.disabled else 1
+        adaptive_height: True
+        spacing: dp(15)
+        pos_hint: {"center_x": .5, "center_y": .4}
+
+        PTextField:
+            text: "example@gmail.com"
+            hint_text: "Email"
+            disabled: form.disabled
+            size_hint: .7, None
+            height: dp(40)
+            pos_hint: {"center_x": .5}
+
+        PTextField:
+            text: "example_password"
+            hint_text: "Password"
+            disabled: form.disabled
+            password: True
+            size_hint: .7, None
+            height: dp(40)
+            pos_hint: {"center_x": .5}
+
+        Widget:
+            size_hint_y: None
+            height: dp(25)
+
+        PBoxLayout:
+            adaptive_size: True
+            pos_hint: {"center_x": .5}
+            spacing: dp(10)
+
+            PButton:
+                text: "Sign Up"
+                disabled: form.disabled
+                on_release: root.sign_up()
+
+            PButton:
+                text: "Sign In"
+                mode: "outlined"
+                disabled: form.disabled
+                on_release: root.sign_in()
+
+    PBoxLayout:
+        id: intro
+        orientation: "vertical"
+        adaptive_height: True
+        pos_hint: {"center_x": .5, "center_y": .55}
+
+        PLabel:
+            id: title
+            text: "purp[size=150sp].[/size]"
+            font_size: sp(100)
+            markup: True
+            font_name: "LexendMedium"
+            text_color: 1, 1, 1, 1
+            scale: 1
+            adaptive_height: True
+            canvas.before:
+                PushMatrix
+                Scale:
+                    origin: self.center
+                    x: self.scale
+                    y: self.scale
+            canvas.after:
+                PopMatrix
+
+        PButton:
+            id: intro_btn
+            text: "Get Started"
+            mode: "contained"
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": .5}
+            on_release: root.show_form()

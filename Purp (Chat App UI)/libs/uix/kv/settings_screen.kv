@@ -1,0 +1,67 @@
+#: import webbrowser webbrowser
+
+<SettingsScreen>
+
+    PBoxLayout:
+        orientation: "vertical"
+        pos_hint: {"top": 1}
+
+        PToolbar:
+            title: "Settings"
+            left_action_items: [["arrow-left", lambda x: root.manager.goto_previous_screen()]]
+
+        ScrollView:
+
+            PBoxLayout:
+                orientation: "vertical"
+                padding: dp(10)
+                spacing: dp(10)
+                adaptive_height: True
+
+                ListItem:
+                    text: "Toggle theme"
+                    secondary_text: "Switches theme between Dark and Light"
+                    icon: root.theme_icon
+                    on_release: root.change_theme()
+
+                ListItem:
+                    text: "Subscribe me on Youtube"
+                    secondary_text: "To support!"
+                    icon: "youtube"
+                    on_release:
+                        webbrowser.open("https://www.youtube.com/channel/UCPFVA4ruEe3QOtTfxEGpqrg")
+
+                ListItem:
+                    text: "About"
+                    secondary_text: "To know more about this app"
+                    icon: "alert-circle"
+                    on_release: root.open_about()
+
+                Widget:
+                    size_hint_y: None
+                    height: dp(20)
+
+                PLabel:
+                    text: "Powered by [b]Kivy[/b]"
+                    font_name: "LexendMedium"
+                    markup: True
+                    adaptive_height: True
+
+
+<AboutDialogContent>
+    adaptive_height: True
+    padding: dp(20)
+    spacing: dp(10)
+    orientation: "vertical"
+
+    PLabel:
+        text: "About"
+        font_size: dp(20)
+        font_name: "LexendMedium"
+        adaptive_height: True
+
+    PLabel:
+        text: "Purp app is only built for showing Custom UIs that built using Kivy and this is not a fully functional messaging app."
+        text_size: self.width, None
+        halign: "center"
+        adaptive_height: True

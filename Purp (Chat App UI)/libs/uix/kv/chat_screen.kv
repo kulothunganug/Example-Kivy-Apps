@@ -1,0 +1,96 @@
+<ChatScreen>
+
+    PBoxLayout:
+        orientation: "vertical"
+
+        PToolbar:
+            title: root.title
+            left_action_items: [["arrow-left", lambda x: root.manager.goto_previous_screen()]]
+            on_title_press: root.show_user_info()
+
+        RecycleView:
+            id: chat_rv
+            data: root.chat_logs
+            viewclass: "ChatBubble"
+
+            RecycleBoxLayout:
+                id: box
+                padding: dp(10)
+                spacing: dp(15)
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_size[1]
+                default_size_hint: .8, None
+                default_size: None, None
+
+        TextInput:
+            id: field
+            hint_text: "Write your message"
+            multiline: True
+            font_name: "Lexend"
+            cursor_color: app.theme_cls.primary_color
+            padding: dp(7)
+            size_hint_y: None
+            height: dp(55)
+            background_active: "assets/images/transparent.png"
+            background_normal: "assets/images/transparent.png"
+
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 0.5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgba:
+                        self.foreground_color if self.text \
+                        else (0.5, 0.5, 0.5, 0.5)
+
+    PIconButton:
+        icon: "corner-right-up"
+        font_size: sp(35)
+        pos_hint: {"center_x": .9}
+        y: dp(55)-(self.width/2)
+        on_release: root.send(field.text.strip())
+
+    PIconButton:
+        icon: "chevrons-down"
+        font_size: sp(20)
+        mode: "outlined"
+        pos_hint: {"center_x": .9}
+        y: dp(55)+(self.width)
+        opacity: 1 if self.show else 0
+        disabled: False if self.show else True
+        on_release: root.scroll_to_bottom() 
+        show:
+            True if chat_rv.height < box.height and chat_rv.scroll_y > 0 \
+            else False
+
+
+<UserInfoDialogContent>
+    orientation: "vertical"
+    adaptive_height: True
+    padding: dp(10)
+    spacing: dp(10)
+
+    FitImage:
+        source: root.image
+        radius: [dp(10),]
+        size_hint: None, None
+        size: dp(140), dp(140)
+        pos_hint: {"center_x": .5}
+
+    PLabel:
+        text: root.title
+        halign: "center"
+        font_name: "LexendMedium"
+        adaptive_height: True
+        font_size: sp(30)
+
+    PLabel:
+        text: root.about
+        halign: "center"
+        font_name: "LexendLight"
+        font_size: sp(16)
+        adaptive_height: True
+        text_size: self.width, None

@@ -1,0 +1,22 @@
+{
+    "auth": {
+        "import": "from baseclass.auth_screen import AuthScreen",
+        "object": "AuthScreen()",
+        "kv": "libs/uix/kv/auth_screen.kv"
+    },
+    "chat": {
+        "import": "from baseclass.chat_screen import ChatScreen",
+        "object": "ChatScreen()",
+        "kv": "libs/uix/kv/chat_screen.kv"
+    },
+    "home": {
+        "import": "from baseclass.home_screen import HomeScreen",
+        "object": "HomeScreen()",
+        "kv": "libs/uix/kv/home_screen.kv"
+    },
+    "settings": {
+        "import": "from baseclass.settings_screen import SettingsScreen",
+        "object": "SettingsScreen()",
+        "kv": "libs/uix/kv/settings_screen.kv"
+    }
+}
