@@ -11,13 +11,12 @@
         id: container
         orientation: "vertical"
 
-        MDToolbar:
+        MDTopAppBar:
             title: "WhatsApp"
             specific_text_color: 1, 1, 1, 1
             right_action_items: [["magnify", lambda x: x], ["dots-vertical", lambda x: root.open_menu(x)]]
 
         MDTabs:
-            default_tab: 1
             indicator_color: 1, 1, 1, 1
             tab_hint_x: True
             text_color_normal: 1., 1., 1., .5
@@ -29,11 +28,11 @@
             CameraTab:
                 icon: "camera"
             ChatsTab:
-                text: "[b]CHATS[/b]"
+                title: "[b]CHATS[/b]"
             StatusTab:
-                text: "[b]STATUS[/b]"
+                title: "[b]STATUS[/b]"
             CallsTab:
-                text: "[b]CALLS[/b]"
+                title: "[b]CALLS[/b]"
 
     CustomFloatingActionButton:
         id: pencil_btn
@@ -51,6 +50,6 @@
 
         MDFloatingActionButton:
             id: float_btn
-            icon: "android-messages"
-            text_color: .9, 1, 1, 1  # using 1, 1, 1, 1 or ffffff not works, I don't know why
+            icon: "message"
+            text_color: 1, 1, 1, 1
             md_bg_color: app.theme_cls.accent_color

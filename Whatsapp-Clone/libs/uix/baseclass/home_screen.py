@@ -49,7 +49,7 @@ class HomeScreen(MDScreen):
 
     def on_tab_switch(self, *args):
         if args[3] == "[b]CHATS[/b]":
-            self.ids.float_btn.icon = "android-messages"
+            self.ids.float_btn.icon = "message"
         elif args[3] == "[b]STATUS[/b]":
             self.ids.float_btn.icon = "camera"
         elif args[3] == "[b]CALLS[/b]":

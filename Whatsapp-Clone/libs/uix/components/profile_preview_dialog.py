@@ -42,7 +42,7 @@ Builder.load_string(
         Widget:
 
         DialogIconButton:
-            icon: 'android-messages'
+            icon: 'message'
 
         DialogIconButton:
             icon: 'phone'

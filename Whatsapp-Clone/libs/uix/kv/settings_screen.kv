@@ -3,7 +3,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDToolbar:
+        MDTopAppBar:
             title: "Settings"
             specific_text_color: 1, 1, 1, 1
             left_action_items: [["arrow-left", lambda x: root.manager.set_screen(name="home", side="right")]]
@@ -41,7 +41,7 @@
                 SettingsListItem:
                     text: "Chats"
                     secondary_text: "Theme, wallpapers, chat history"
-                    icon: "android-messages"
+                    icon: "message"
 
                 SettingsListItem:
                     text: "Notifictaions"
