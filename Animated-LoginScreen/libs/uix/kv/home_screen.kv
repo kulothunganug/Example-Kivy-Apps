@@ -53,26 +53,18 @@
                 MDTextField:
                     hint_text: "Name"
                     pos_hint: {"center_x": .5, "center_y": .7}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
 
                 MDTextField:
                     hint_text: "Email"
                     pos_hint: {"center_x": .5, "center_y": .5}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
 
                 MDTextField:
                     hint_text: "Password"
                     pos_hint: {"center_x": .5, "center_y": .3}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
 
                 MDFloatingActionButton:
                     icon: "arrow-right"
                     pos_hint: {"center_x": .5, "center_y": .1}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
                     md_bg_color: app.theme_cls.primary_color
 
     MDCard:
@@ -113,27 +105,23 @@
                 MDTextField:
                     hint_text: "Email"
                     pos_hint: {"center_x": .5, "center_y": .65}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
 
                 MDTextField:
                     hint_text: "Password"
                     pos_hint: {"center_x": .5, "center_y": .37}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
 
                 MDFloatingActionButton:
                     icon: "arrow-right"
                     pos_hint: {"center_x": .5, "center_y": .12}
-                    disabled: self.parent.disabled
-                    opacity: self.parent.opacity
                     md_bg_color: app.theme_cls.primary_dark
 
 <MDTextField>
     size_hint_x: .8
-    text_color: app.theme_cls.bg_normal
-    color_mode: "custom"
-    line_color_focus: app.theme_cls.bg_normal
+    hint_text_color_normal: 1, 1, 1, 1
+    hint_text_color_focus: 1, 1, 1, 1
+    line_color_focus: 1, 1, 1, 1
+    text_color_normal: 1, 1, 1, 1
+    text_color_focus: 1, 1, 1, 1
     mode: "rectangle"
 
 
